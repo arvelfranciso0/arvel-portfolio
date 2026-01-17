@@ -9,7 +9,7 @@ export default function Footer() {
     <footer className="py-12 px-6 border-t border-slate-200 dark:border-[#262626]">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
         <p className="text-sm text-slate-500">
-          © 2026 {personalInfo.fname} Dev. Built with Next.js & shadcn.
+          © 2026 {personalInfo.fname} — Full Stack Developer.
         </p>
         <div className="flex gap-6 text-slate-500">
           <Link
