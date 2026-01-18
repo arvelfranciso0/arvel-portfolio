@@ -14,18 +14,24 @@ export default function Footer() {
         <div className="flex gap-6 text-slate-500">
           <Link
             href={`${personalInfo.github}`}
+            target="_blank"
+            rel="noopener noreferrer"
             className="hover:text-black dark:hover:text-white transition-colors"
           >
             <Github size={20} />
           </Link>
           <Link
             href={`${personalInfo.linked}`}
+            target="_blank"
+            rel="noopener noreferrer"
             className="hover:text-black dark:hover:text-white transition-colors"
           >
             <Linkedin size={20} />
           </Link>
           <Link
             href={`${personalInfo.x}`}
+            target="_blank"
+            rel="noopener noreferrer"
             className="hover:text-black dark:hover:text-white transition-colors"
           >
             <Twitter size={20} />

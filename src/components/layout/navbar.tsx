@@ -54,8 +54,15 @@ export default function Navbar() {
 
           <div className="flex items-center gap-4">
             <ThemeToggle />
-            <Button className="hidden md:flex gap-2">
-              Resume <Download size={14} />
+            <Button asChild className="hidden md:flex gap-2">
+              <a
+                href="/arvel-resume.pdf"
+                download
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Resume <Download size={14} />
+              </a>
             </Button>
           </div>
 

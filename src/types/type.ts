@@ -6,7 +6,7 @@ export type Role =
   | "UI/UX"
   | "Frontend Developer";
 
-export type Project = {
+export interface Project {
   id: number;
   title: string;
   description: string;
@@ -14,14 +14,14 @@ export type Project = {
   image?: string;
   github_link?: string;
   preview_link?: string;
-  role?: Role;
+  role: Role;
   company?: string;
-};
+}
 
-export type Skill = {
+export interface Skill {
   name: SkillName;
   icon: LucideIcon;
-};
+}
 
 export type SkillName =
   // Frontend
@@ -84,4 +84,5 @@ export type SkillName =
   | "Rust"
   | "CLI"
   | "Socket.io"
+  | "React Flow"
   | "Shadcn";
