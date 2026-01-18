@@ -24,7 +24,7 @@ export function cn(...inputs: ClassValue[]) {
 export const personalInfo = {
   fname: "Arvel",
   lastname: "Francisco",
-  experience: "06",
+  experience: "02",
   project_completed: "04",
   web_dev_interest_year: "2020",
   position: "Full Stack Engineer",
