@@ -33,9 +33,7 @@ export default function Navbar() {
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
           <Button asChild variant={"ghost"} className="flex items-center gap-3">
             <Link href={"/#home"}>
-              <span className="flex items-center justify-center w-8 h-8 rounded bg-black dark:bg-white text-white dark:text-black">
-                <Terminal size={18} />
-              </span>
+              <Terminal size={18} />
               <span className="font-bold text-lg tracking-tight uppercase">
                 {personalInfo.fname}.DEV
               </span>
@@ -56,8 +54,15 @@ export default function Navbar() {
 
           <div className="flex items-center gap-4">
             <ThemeToggle />
-            <Button className="hidden md:flex gap-2">
-              Resume <Download size={14} />
+            <Button asChild className="hidden md:flex gap-2">
+              <a
+                href="/arvel-resume.pdf"
+                download
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Resume <Download size={14} />
+              </a>
             </Button>
           </div>
 

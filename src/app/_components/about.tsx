@@ -10,7 +10,7 @@ export default function AboutSection() {
           <div className="relative group flex justify-center md:justify-start">
             <div className="absolute inset-0 border-2 border-slate-200 dark:border-white/20 rounded-xl rotate-6 group-hover:rotate-3 transition-transform duration-300 w-80 h-80"></div>
             <div
-              className="relative h-80 w-80 bg-slate-200 dark:bg-[#0a0a0a] rounded-xl overflow-hidden border border-slate-200 dark:border-[#262626]"
+              className="cursor-pointer  relative h-80 w-80 bg-slate-200 dark:bg-[#0a0a0a] rounded-xl overflow-hidden border border-slate-200 dark:border-[#262626]"
               style={{
                 backgroundImage: "url('/arvel-dev.png')",
                 backgroundSize: "cover",
