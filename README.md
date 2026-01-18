@@ -4,7 +4,7 @@ My personal e-portfolio showcasing projects, skills, and experience as a softwar
 
 ## 🟢 Live
 
-Live Site: [Arvel Dev](https://your-domain.com)
+Live Site: [Arvel Dev](https://arvel-portfolio.netlify.app/)
 
 ## ℹ️ About
 
@@ -21,6 +21,6 @@ This e-portfolio serves as a central place to present my professional background
 
 ## 📞 Contact / Links
 
-- Portfolio: <https://your-domain.com>
+- X: <https://x.com/arvelfranc66681?s=21>
 - GitHub: [https://github.com/arvelfranciso0](https://github.com/arvelfranciso0)
-- LinkedIn: <https://linkedin.com/in/your-profile>
+- LinkedIn: <https://www.linkedin.com/in/arvel-francisco/>
