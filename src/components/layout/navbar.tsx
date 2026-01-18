@@ -26,6 +26,7 @@ import {
   SheetTitle,
   SheetTrigger,
   SheetFooter,
+  SheetDescription,
 } from "@/components/ui/sheet";
 import { Separator } from "@/components/ui/separator";
 
@@ -106,6 +107,9 @@ export default function Navbar() {
                   <Terminal size={20} className="text-primary" />
                   <span>Arvel.DEV</span>
                 </SheetTitle>
+                <SheetDescription className="sr-only">
+                  Portfolio navigation menu
+                </SheetDescription>
               </SheetHeader>
 
               <Separator className="my-4" />
