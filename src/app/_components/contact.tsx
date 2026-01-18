@@ -42,15 +42,16 @@ export default function ContactSection() {
         console.error("API response error");
         toast.error("Something went wrong!");
         setIsSubmittin(false);
+        form.current.reset();
       }
-
-      console.log(response);
       toast.success("Email sent successfully");
       setIsSubmittin(false);
+      form.current.reset();
     } catch (error) {
       console.error("Fetch error:", error);
       toast.error("Something went wrong!");
       setIsSubmittin(false);
+      form.current.reset();
     }
   };
   return (
