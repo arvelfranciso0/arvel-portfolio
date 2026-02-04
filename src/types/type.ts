@@ -12,7 +12,6 @@ export interface Project {
   description: string;
   tags: SkillName[];
   image?: string;
-  github_link?: string;
   preview_link?: string;
   role: Role;
   company?: string;
