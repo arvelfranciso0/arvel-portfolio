@@ -74,12 +74,6 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           </div>
           <div className="flex gap-3 text-slate-400 dark:text-slate-500">
             <Link
-              href={`${project.github_link}`}
-              className="hover:text-black dark:hover:text-white transition-colors"
-            >
-              <Github size={18} />
-            </Link>
-            <Link
               href={`${project.preview_link}`}
               className="hover:text-black dark:hover:text-white transition-colors"
             >

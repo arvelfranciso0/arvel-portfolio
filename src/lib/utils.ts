@@ -50,7 +50,6 @@ export const projects: Project[] = [
       "Professional-grade utilities for developers. All processing is done locally in your browser.",
     tags: ["Next.js", "Tailwind CSS", "Shadcn", "React Flow", "TypeScript"],
     image: "/devkit-ss.png",
-    github_link: "https://github.com/arvelfranciso0/dev-kit",
     preview_link: "https://devkit-tool.netlify.app/",
     role: "Frontend Developer",
   },
