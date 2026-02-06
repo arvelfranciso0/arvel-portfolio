@@ -12,7 +12,7 @@ export default function AboutSection() {
             <div
               className="cursor-pointer  relative h-80 w-80 bg-slate-200 dark:bg-[#0a0a0a] rounded-xl overflow-hidden border border-slate-200 dark:border-[#262626]"
               style={{
-                backgroundImage: "url('/arvel-dev.png')",
+                backgroundImage: "url('/arvel-dev.jpg')",
                 backgroundSize: "cover",
               }}
             />

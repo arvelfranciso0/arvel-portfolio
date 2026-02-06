@@ -21,7 +21,7 @@ export default function ProjectSection() {
             </p>
           </div>
           <Button variant="ghost" asChild className="gap-2 group">
-            <Link href={"/project"}>
+            <Link href={"/projects"}>
               View All Projects{" "}
               <ArrowRight
                 size={16}

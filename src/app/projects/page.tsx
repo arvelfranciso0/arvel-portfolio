@@ -8,6 +8,7 @@ import { filters, projects } from "@/lib/utils";
 
 import ProjectCard from "../../components/shared/project-card";
 import AppPagination from "@/components/shared/pagination";
+import Link from "next/link";
 
 export default function ProjectsArchive() {
   const [filter, setFilter] = useState<string[]>(["All Projects"]);
