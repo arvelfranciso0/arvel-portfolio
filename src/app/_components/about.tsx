@@ -12,7 +12,7 @@ export default function AboutSection() {
             <div
               className="cursor-pointer  relative h-80 w-80 bg-slate-200 dark:bg-[#0a0a0a] rounded-xl overflow-hidden border border-slate-200 dark:border-[#262626]"
               style={{
-                backgroundImage: "url('/arvel-dev.png')",
+                backgroundImage: "url('/arvel-dev.jpg')",
                 backgroundSize: "cover",
               }}
             />
@@ -23,15 +23,18 @@ export default function AboutSection() {
               About Me
             </h2>
             <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-lg">
-              Hello! I'm {personalInfo.fname}, a passionate developer based in{" "}
-              {personalInfo.country}. I enjoy creating things that live on the
-              internet. My interest in web development started back in{" "}
-              {personalInfo.web_dev_interest_year} hacking together HTML & CSS.
+              Hello! I'm {personalInfo.fname}, a developer based in{" "}
+              {personalInfo.country}. I build things for the web, from scalable
+              backend systems and APIs to clean, modern interfaces using today’s
+              frontend frameworks. I also work on AI integrations to create
+              smarter, data-driven features. My journey into web development
+              began in {personalInfo.web_dev_interest_year} with simple HTML &
+              CSS and has been evolving ever since.
             </p>
             <div className="pt-4 flex gap-12">
               <div className="flex flex-col">
                 <span className="text-3xl font-bold">
-                  {personalInfo.experience}+
+                  {personalInfo.experience}
                 </span>
                 <span className="text-sm text-slate-500 font-medium">
                   Years Experience

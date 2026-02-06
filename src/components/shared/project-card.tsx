@@ -1,17 +1,19 @@
+import ProjectPreviewLink from "@/app/projects/_components/projectPreviewLink";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { getRoleColor } from "@/lib/utils";
-import { Project } from "@/types/type";
+import { Project, ProjectCardProps } from "@/types/type";
 import { Terminal, Github, Code, ExternalLink } from "lucide-react";
 import Link from "next/link";
-
-interface ProjectCardProps {
-  project: Project;
-}
+import { useRouter } from "next/navigation";
 
 export default function ProjectCard({ project }: ProjectCardProps) {
+  const router = useRouter();
   return (
-    <div className="group flex flex-col bg-white dark:bg-[#0a0a0a] border border-slate-200 dark:border-[#262626] rounded-xl overflow-hidden hover:border-black dark:hover:border-white hover:shadow-lg transition-all duration-300">
+    <div
+      onClick={() => router.push(`/projects/${project.id}`)}
+      className="group cursor-pointer flex flex-col bg-white dark:bg-[#0a0a0a] border border-slate-200 dark:border-[#262626] rounded-xl overflow-hidden hover:border-black dark:hover:border-white hover:shadow-lg transition-all duration-300"
+    >
       <div className="h-48 overflow-hidden relative border-b border-slate-100 dark:border-[#262626] bg-slate-100 dark:bg-neutral-900">
         {project.image ? (
           <div
@@ -60,33 +62,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
       </div>
 
       <div className="p-5 flex flex-col flex-1">
-        <div className="flex justify-between items-start gap-3 mb-3">
-          <div className="flex flex-col mb-4">
-            <span className="text-[10px] uppercase tracking-[0.2em] text-slate-400 dark:text-neutral-500 font-bold mb-1">
-              {project.company || "Independent Project"}
-            </span>
-            <Link
-              href={`${project.preview_link}`}
-              className="text-xl font-black tracking-tight group-hover:underline decoration-2 underline-offset-4"
-            >
-              {project.title}
-            </Link>
-          </div>
-          <div className="flex gap-3 text-slate-400 dark:text-slate-500">
-            <Link
-              href={`${project.github_link}`}
-              className="hover:text-black dark:hover:text-white transition-colors"
-            >
-              <Github size={18} />
-            </Link>
-            <Link
-              href={`${project.preview_link}`}
-              className="hover:text-black dark:hover:text-white transition-colors"
-            >
-              <ExternalLink size={18} />
-            </Link>
-          </div>
-        </div>
+        <ProjectPreviewLink project={project} />
         <p className="text-slate-600 dark:text-slate-400 text-sm mb-5 line-clamp-3 leading-relaxed">
           {project.description}
         </p>

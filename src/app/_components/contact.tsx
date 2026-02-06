@@ -109,7 +109,7 @@ export default function ContactSection() {
               <label className="text-sm font-medium">Message</label>
               <textarea
                 rows={4}
-                className="w-full px-4 py-2 rounded-lg bg-slate-50 dark:bg-black border border-slate-200 dark:border-[#262626] focus:ring-1 focus:ring-black dark:focus:ring-white outline-none resize-none"
+                className="w-full px-4 py-2 rounded-lg bg-slate-50 dark:bg-black border border-slate-200 dark:border-[#262626] focus:ring-1 focus:ring-black dark:focus:ring-white outline-none resize-none field-sizing-content min-h-30"
                 placeholder="Tell me about your project..."
                 name="message"
                 required

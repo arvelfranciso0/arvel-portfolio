@@ -1,7 +1,7 @@
 import { LucideIcon } from "lucide-react";
 
 export type Role =
-  | "Full Stack"
+  | "Full-Stack"
   | "Backend Developer"
   | "UI/UX"
   | "Frontend Developer";
@@ -12,10 +12,18 @@ export interface Project {
   description: string;
   tags: SkillName[];
   image?: string;
-  github_link?: string;
   preview_link?: string;
   role: Role;
   company?: string;
+  workBreakdown?: WorkBreakdown[];
+  collaborationNote?: string;
+}
+
+export interface WorkBreakdown {
+  category: string;
+  themeColor: string;
+  description: string;
+  tasks: string[];
 }
 
 export interface Skill {
@@ -85,4 +93,10 @@ export type SkillName =
   | "CLI"
   | "Socket.io"
   | "React Flow"
+  | "Perplexity AI"
+  | "SEO"
   | "Shadcn";
+
+export type ProjectCardProps = {
+  project: Project;
+};
