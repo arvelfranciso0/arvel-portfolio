@@ -30,7 +30,7 @@ export default function WorkDescriptionLayout() {
           <Button
             variant={"ghost"}
             onClick={() => router.back()}
-            className="group inline-flex items-center cursor-pointer gap-2 mb-12 text-xs font-bold uppercase tracking-widest text-slate-500 hover:text-gray-900 transition-colors"
+            className="group inline-flex items-center cursor-pointer gap-2 mb-12 text-xs font-bold uppercase tracking-widest text-slate-500 hover:text-gray-900 hover:dark:text-gray-100 transition-colors"
           >
             <ArrowLeft
               size={16}
