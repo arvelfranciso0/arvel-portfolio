@@ -75,7 +75,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <ThemeProvider attribute="class" disableTransitionOnChange>
+        <ThemeProvider attribute="class" defaultTheme="system">
           <Navbar />
           <main className="flex flex-col pt-16">{children}</main>
           <Toaster />

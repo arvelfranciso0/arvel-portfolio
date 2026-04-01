@@ -1,6 +1,6 @@
 "use client";
 
-import { personalInfo } from "@/lib/utils";
+import { personalInfo, projects } from "@/lib/utils";
 
 export default function AboutSection() {
   return (
@@ -34,16 +34,14 @@ export default function AboutSection() {
             <div className="pt-4 flex gap-12">
               <div className="flex flex-col">
                 <span className="text-3xl font-bold">
-                  {personalInfo.experience}
+                  {personalInfo.experience}+
                 </span>
                 <span className="text-sm text-slate-500 font-medium">
                   Years Experience
                 </span>
               </div>
               <div className="flex flex-col">
-                <span className="text-3xl font-bold">
-                  {personalInfo.project_completed}+
-                </span>
+                <span className="text-3xl font-bold">0{projects.length}</span>
                 <span className="text-sm text-slate-500 font-medium">
                   Projects Completed
                 </span>

@@ -167,7 +167,7 @@ export const projects: Project[] = [
       "A REST API service that retrieves Japan-localized autocomplete keywords, classifies suggested keywords, and processes keyword data through batch jobs for ongoing SEO analysis.",
     tags: ["Node.js", "Express", "MySQL", "REST API", "SEO"],
     role: "Backend Developer",
-    company: "",
+    company: "Client Project",
     collaborationNote:
       "System architecture and overall design were provided by another developer. I was responsible for implementing the REST API, keyword processing logic, database integration, and batch processing workflows.",
     workBreakdown: [
@@ -213,6 +213,29 @@ export const projects: Project[] = [
           "Created MySQL tables for main keywords and autocomplete results",
           "Optimized queries for batch read and write operations",
           "Maintained data integrity across repeated batch executions",
+        ],
+      },
+    ],
+  },
+  {
+    id: 4,
+    title: "GOAT",
+    description:
+      "Migrated a legacy VB.NET application into a modern web platform using Next.js and a Laravel API, enhancing performance, scalability, and overall user experience.",
+    tags: ["Laravel", "Next.js"],
+    role: "Backend Developer",
+    company: "Client Project",
+    workBreakdown: [
+      {
+        category: "API Development",
+        themeColor: "text-green-500",
+        description:
+          "Analyzed and refactored core VB.NET business logic into RESTful API endpoints, ensuring feature parity and seamless integration with the modern frontend.",
+        tasks: [
+          "Documented existing business logic and system workflows",
+          "Developed and structured API endpoints for core functionalities",
+          "Integrated APIs with the frontend application",
+          "Ensured data validation and consistency across the system",
         ],
       },
     ],
