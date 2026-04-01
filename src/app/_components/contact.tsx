@@ -68,7 +68,10 @@ export default function ContactSection() {
             <div className="flex flex-col gap-4 mt-4">
               <div className="flex items-center gap-4 text-slate-600 dark:text-slate-300">
                 <Mail size={20} className="text-black dark:text-white" />
-                <a className="hover:underline" href="mailto:hello@alex.dev">
+                <a
+                  className="hover:underline"
+                  href={`mailto:${personalInfo.email}`}
+                >
                   {personalInfo.email}
                 </a>
               </div>
