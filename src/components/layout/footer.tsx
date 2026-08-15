@@ -1,43 +1,17 @@
 "use client";
 
+import { Reveal } from "@/components/motion/reveal";
 import { personalInfo } from "@/lib/utils";
-import { Github, Linkedin, Twitter } from "lucide-react";
-import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="py-12 px-6 border-t border-slate-200 dark:border-[#262626]">
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-        <p className="text-sm text-slate-500">
-          © 2026 {personalInfo.fname} — Full Stack Developer.
+    <footer className="px-6 sm:px-14 py-6 pb-10">
+      <Reveal>
+        <p className="font-mono text-[13px] text-muted-foreground/60">
+          © 2026 {personalInfo.fname} {personalInfo.lastname}. Built with care
+          in {personalInfo.city}.
         </p>
-        <div className="flex gap-6 text-slate-500">
-          <Link
-            href={`${personalInfo.github}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-black dark:hover:text-white transition-colors"
-          >
-            <Github size={20} />
-          </Link>
-          <Link
-            href={`${personalInfo.linked}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-black dark:hover:text-white transition-colors"
-          >
-            <Linkedin size={20} />
-          </Link>
-          <Link
-            href={`${personalInfo.x}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-black dark:hover:text-white transition-colors"
-          >
-            <Twitter size={20} />
-          </Link>
-        </div>
-      </div>
+      </Reveal>
     </footer>
   );
 }

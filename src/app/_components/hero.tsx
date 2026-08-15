@@ -1,54 +1,84 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { cn, personalInfo } from "@/lib/utils";
+import { Parallax } from "@/components/motion/parallax";
+import { Reveal } from "@/components/motion/reveal";
+import { personalInfo, projects } from "@/lib/utils";
+import { ArrowRight } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 
 export default function HeroSection() {
   return (
     <section
       id="home"
-      className="flex flex-col justify-center min-h-[85vh] px-6 py-20 relative overflow-hidden"
+      className="px-6 sm:px-14 pt-24 pb-25 grid grid-cols-1 md:grid-cols-[1.3fr_1fr] gap-10 items-center"
     >
-      <div className="absolute -top-20 -right-20 w-96 h-96 bg-gray-200/20 dark:bg-white/5 rounded-full blur-3xl"></div>
-
-      <div className="max-w-4xl mx-auto w-full z-10">
-        <div className="flex flex-col items-start gap-6">
-          <h1 className="text-5xl md:text-7xl font-black tracking-tight leading-tight">
-            Building Digital <br />
-            <span className="text-slate-500 dark:text-slate-400">
-              Experiences.
-            </span>
+      <div>
+        <Reveal>
+          <h1 className="font-sans text-5xl sm:text-6xl lg:text-[64px] font-extrabold leading-[1.04] tracking-tight mb-6">
+            Building Digital{" "}
+            <span className="text-primary">Experiences.</span>
           </h1>
-          <p className="text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-2xl font-light leading-relaxed">
-            I'm {personalInfo.fname}, a{" "}
-            <span className="text-black dark:text-white font-medium">
-              {personalInfo.position}
-            </span>{" "}
-            focused on building accessible, pixel-perfect, and performant web
-            applications.
+        </Reveal>
+        <Reveal delay={0.1}>
+          <p className="text-[17px] text-muted-foreground max-w-lg leading-relaxed mb-7">
+            {personalInfo.position} focused on building accessible,
+            pixel-perfect, and performant web applications — based in{" "}
+            {personalInfo.fll_location}.
           </p>
-          <div className="flex flex-wrap gap-4 pt-4">
-            <Button size="lg" asChild>
-              <Link href={"/#projects"}>View Work</Link>
+        </Reveal>
+        <Reveal delay={0.2}>
+          <div className="flex flex-wrap gap-3.5 mb-9">
+            <Button
+              asChild
+              className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90 px-7 py-6 text-sm font-semibold gap-1.5"
+            >
+              <Link href="/#work">
+                View Work <ArrowRight size={16} />
+              </Link>
             </Button>
-            <Button variant="outline" size="lg" asChild>
-              <Link href={"/#contact"}>Contact Me</Link>
+            <Button
+              asChild
+              variant="outline"
+              className="rounded-full border-border px-7 py-6 text-sm font-semibold hover:bg-accent"
+            >
+              <Link href="/#contact">Contact Me</Link>
             </Button>
           </div>
-        </div>
+        </Reveal>
+        <Reveal delay={0.3}>
+          <div className="flex gap-8 font-mono">
+            <div>
+              <div className="text-3xl font-semibold text-foreground">
+                {parseInt(personalInfo.experience, 10)}+
+              </div>
+              <div className="text-xs text-muted-foreground">Yrs Exp.</div>
+            </div>
+            <div>
+              <div className="text-3xl font-semibold text-foreground">
+                {personalInfo.project_completed}
+              </div>
+              <div className="text-xs text-muted-foreground">Projects</div>
+            </div>
+          </div>
+        </Reveal>
       </div>
 
-      <div className="hidden lg:block absolute right-0 bottom-20 opacity-40 select-none pointer-events-none">
-        <pre className="font-mono text-xs text-black/40 dark:text-white/40 text-right pr-10">
-          {`const developer = {
-  name: '${personalInfo.fname}',
-  role: '${personalInfo.position}',
-  passion: '${personalInfo.passion[1]}',
-  status: '${personalInfo.status}...'
-};`}
-        </pre>
-      </div>
+      <Parallax offset={28} className="flex justify-center">
+        <Reveal delay={0.15}>
+          <div className="w-64 h-64 sm:w-80 sm:h-80 md:w-100 md:h-100 rounded-full overflow-hidden bg-primary flex items-start justify-center">
+            <Image
+              src="/arvel-dev.png"
+              alt={`${personalInfo.fname} ${personalInfo.lastname}`}
+              width={1650}
+              height={2100}
+              className="w-[78%] h-auto mt-[12%]"
+              priority
+            />
+          </div>
+        </Reveal>
+      </Parallax>
     </section>
   );
 }

@@ -1,19 +1,21 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Sora, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/navbar";
 import Footer from "@/components/layout/footer";
-import { ThemeProvider } from "@/components/ui/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
+import { MotionConfig } from "motion/react";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const sora = Sora({
+  variable: "--font-sora",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const ibmPlexMono = IBM_Plex_Mono({
+  variable: "--font-ibm-plex-mono",
   subsets: ["latin"],
+  weight: ["400", "500", "600"],
 });
 
 export const metadata: Metadata = {
@@ -71,16 +73,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <ThemeProvider attribute="class" defaultTheme="system">
-          <Navbar />
-          <main className="flex flex-col pt-16">{children}</main>
+    <html lang="en">
+      <body className={`${sora.variable} ${ibmPlexMono.variable} antialiased`}>
+        <MotionConfig reducedMotion="user">
+          <div className="max-w-320 mx-auto">
+            <Navbar />
+            <main className="flex flex-col">{children}</main>
+            <Footer />
+          </div>
           <Toaster />
-          <Footer />
-        </ThemeProvider>
+        </MotionConfig>
       </body>
     </html>
   );
