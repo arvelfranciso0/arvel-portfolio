@@ -14,7 +14,7 @@ export default function HeroSection() {
       id="home"
       className="px-6 sm:px-14 pt-24 pb-25 grid grid-cols-1 md:grid-cols-[1.3fr_1fr] gap-10 items-center"
     >
-      <div>
+      <div className="order-2 md:order-1">
         <Reveal>
           <h1 className="font-sans text-5xl sm:text-6xl lg:text-[64px] font-extrabold leading-[1.04] tracking-tight mb-6">
             Building Digital{" "}
@@ -65,7 +65,7 @@ export default function HeroSection() {
         </Reveal>
       </div>
 
-      <Parallax offset={28} className="flex justify-center">
+      <Parallax offset={28} className="order-1 md:order-2 flex justify-center">
         <Reveal delay={0.15}>
           <div className="w-64 h-64 sm:w-80 sm:h-80 md:w-100 md:h-100 rounded-full overflow-hidden bg-primary flex items-start justify-center">
             <Image
