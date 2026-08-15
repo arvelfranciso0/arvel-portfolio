@@ -50,9 +50,10 @@ export async function POST(request: Request) {
       { success: true, message: "Email sent successfully" },
       { status: 200 },
     );
-  } catch (error: any) {
+  } catch (error) {
+    const message = error instanceof Error ? error.message : "Unknown error";
     return NextResponse.json(
-      { message: "Server error", error: error.message },
+      { message: "Server error", error: message },
       { status: 500 },
     );
   }
