@@ -2,8 +2,10 @@
 
 import { Button } from "@/components/ui/button";
 import { Spinner } from "@/components/ui/spinner";
+import { Parallax } from "@/components/motion/parallax";
+import { Reveal } from "@/components/motion/reveal";
 import { personalInfo } from "@/lib/utils";
-import { Mail, MapPin, Send } from "lucide-react";
+import { Send } from "lucide-react";
 import { useRef, useState } from "react";
 import { toast } from "sonner";
 import { contactSchema } from "../schema/contact";
@@ -54,81 +56,101 @@ export default function ContactSection() {
       form.current.reset();
     }
   };
+
   return (
-    <section id="contact" className="py-24 px-6">
-      <div className="max-w-4xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          <div className="flex flex-col gap-6">
-            <h2 className="text-4xl font-bold tracking-tight">
-              Let's work together
+    <section id="contact" className="px-6 sm:px-14 pb-24">
+      <Parallax offset={24} className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <Reveal>
+          <div className="bg-card rounded-lg p-11 flex flex-col justify-center h-full">
+            <div className="font-mono text-sm text-primary mb-3">{"// contact"}</div>
+            <h2 className="text-3xl font-bold tracking-tight mb-3.5">
+              Let&apos;s work together
             </h2>
-            <p className="text-slate-600 dark:text-slate-400 text-lg">
-              Have a project in mind? I'm currently open to new opportunities.
+            <p className="text-[15px] leading-relaxed text-muted-foreground mb-6.5">
+              Open to new opportunities. Whether you have a question or just want
+              to say hi, my inbox is always open.
             </p>
-            <div className="flex flex-col gap-4 mt-4">
-              <div className="flex items-center gap-4 text-slate-600 dark:text-slate-300">
-                <Mail size={20} className="text-black dark:text-white" />
-                <a
-                  className="hover:underline"
-                  href={`mailto:${personalInfo.email}`}
-                >
+            <div className="flex flex-col gap-3 font-mono text-sm">
+              <div>
+                <span className="text-muted-foreground/70">email — </span>
+                <a href={`mailto:${personalInfo.email}`} className="hover:underline">
                   {personalInfo.email}
                 </a>
               </div>
-              <div className="flex items-center gap-4 text-slate-600 dark:text-slate-300">
-                <MapPin size={20} className="text-black dark:text-white" />
-                <span>
-                  {personalInfo.country}, {personalInfo.province}
-                </span>
+              <div>
+                <span className="text-muted-foreground/70">location — </span>
+                <span className="text-foreground/85">{personalInfo.fll_location}</span>
+              </div>
+              <div className="flex gap-4.5 mt-1.5">
+                <a href={personalInfo.github} target="_blank" rel="noopener noreferrer">
+                  GitHub
+                </a>
+                <a href={personalInfo.linked} target="_blank" rel="noopener noreferrer">
+                  LinkedIn
+                </a>
+                <a href={personalInfo.x} target="_blank" rel="noopener noreferrer">
+                  X
+                </a>
               </div>
             </div>
           </div>
+        </Reveal>
 
+        <Reveal delay={0.15}>
           <form
             ref={form}
             onSubmit={sendEmail}
-            className="flex flex-col gap-4 bg-white dark:bg-[#0a0a0a] p-8 rounded-xl border border-slate-200 dark:border-[#262626]"
+            className="bg-card rounded-lg p-8 flex flex-col gap-4"
           >
-            <div className="space-y-2">
-              <label className="text-sm font-medium">Name</label>
+            <div>
+              <label htmlFor="contact-name" className="sr-only">
+                Name
+              </label>
               <input
-                className="w-full px-4 py-2 rounded-lg bg-slate-50 dark:bg-black border border-slate-200 dark:border-[#262626] focus:ring-1 focus:ring-black dark:focus:ring-white outline-none"
-                placeholder="John Doe"
+                id="contact-name"
+                className="w-full bg-background border border-border rounded-lg px-4 py-3.5 text-sm focus:ring-1 focus:ring-primary outline-none"
+                placeholder="Name"
                 name="name"
                 required
               />
             </div>
-            <div className="space-y-2">
-              <label className="text-sm font-medium">Email</label>
+            <div>
+              <label htmlFor="contact-email" className="sr-only">
+                Email
+              </label>
               <input
-                className="w-full px-4 py-2 rounded-lg bg-slate-50 dark:bg-black border border-slate-200 dark:border-[#262626] focus:ring-1 focus:ring-black dark:focus:ring-white outline-none"
+                id="contact-email"
+                className="w-full bg-background border border-border rounded-lg px-4 py-3.5 text-sm focus:ring-1 focus:ring-primary outline-none"
                 type="email"
-                placeholder="john@example.com"
+                placeholder="Email"
                 name="email"
                 required
               />
             </div>
-            <div className="space-y-2">
-              <label className="text-sm font-medium">Message</label>
+            <div>
+              <label htmlFor="contact-message" className="sr-only">
+                Message
+              </label>
               <textarea
+                id="contact-message"
                 rows={4}
-                className="w-full px-4 py-2 rounded-lg bg-slate-50 dark:bg-black border border-slate-200 dark:border-[#262626] focus:ring-1 focus:ring-black dark:focus:ring-white outline-none resize-none field-sizing-content min-h-30"
-                placeholder="Tell me about your project..."
+                className="w-full bg-background border border-border rounded-lg px-4 py-3.5 text-sm focus:ring-1 focus:ring-primary outline-none resize-vertical"
+                placeholder="Message"
                 name="message"
                 required
               />
             </div>
             <Button
-              type={"submit"}
+              type="submit"
               disabled={isSubmitting}
-              className="w-full cursor-pointer py-6 gap-2 text-base"
+              className="w-full rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 py-6 gap-2 text-sm font-semibold"
             >
               {isSubmitting && <Spinner />}
               Send Message <Send size={16} />
             </Button>
           </form>
-        </div>
-      </div>
+        </Reveal>
+      </Parallax>
     </section>
   );
 }

@@ -1,34 +1,26 @@
-import { LucideIcon } from "lucide-react";
-
-export type Role =
-  | "Full-Stack"
-  | "Backend Developer"
-  | "UI/UX"
-  | "Frontend Developer";
+import type { LucideIcon } from "lucide-react";
 
 export interface Project {
   id: number;
   title: string;
   description: string;
-  tags: SkillName[];
+  /** Two-letter monogram shown on the card's favicon-style badge, and on the thumbnail when no image or placeholder icon is set */
+  initials: string;
+  /** Thumbnail image path; when absent, the thumbnail falls back to a placeholder */
   image?: string;
+  /** Tech stack shown in the "Read More" detail dialog */
+  tags?: SkillName[];
+  /** Live URL; when present, the card shows a "Live" link */
   preview_link?: string;
-  role: Role;
-  company?: string;
-  workBreakdown?: WorkBreakdown[];
-  collaborationNote?: string;
-}
-
-export interface WorkBreakdown {
-  category: string;
-  themeColor: string;
-  description: string;
-  tasks: string[];
+  /** Icon + label shown on the thumbnail when there's no screenshot to show (e.g. client work under NDA) */
+  placeholderIcon?: LucideIcon;
+  placeholderLabel?: string;
 }
 
 export interface Skill {
   name: SkillName;
-  icon: LucideIcon;
+  /** URL to the skill's icon; when absent, render a text-fallback badge */
+  icon?: string;
 }
 
 export type SkillName =
@@ -95,8 +87,6 @@ export type SkillName =
   | "React Flow"
   | "Perplexity AI"
   | "SEO"
-  | "Shadcn";
-
-export type ProjectCardProps = {
-  project: Project;
-};
+  | "Shadcn"
+  | "Electron"
+  | "Dify";

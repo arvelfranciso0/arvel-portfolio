@@ -1,55 +1,52 @@
 "use client";
 
-import { personalInfo, projects } from "@/lib/utils";
+import { Parallax } from "@/components/motion/parallax";
+import { Reveal } from "@/components/motion/reveal";
+import { personalInfo } from "@/lib/utils";
 
 export default function AboutSection() {
   return (
-    <section id="about" className="py-24 px-6 bg-slate-50 dark:bg-[#050505]">
-      <div className="max-w-5xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <div className="relative group flex justify-center md:justify-start">
-            <div className="absolute inset-0 border-2 border-slate-200 dark:border-white/20 rounded-xl rotate-6 group-hover:rotate-3 transition-transform duration-300 w-80 h-80"></div>
-            <div
-              className="cursor-pointer  relative h-80 w-80 bg-slate-200 dark:bg-[#0a0a0a] rounded-xl overflow-hidden border border-slate-200 dark:border-[#262626]"
-              style={{
-                backgroundImage: "url('/arvel-dev.jpg')",
-                backgroundSize: "cover",
-              }}
-            />
-          </div>
-          <div className="flex flex-col gap-6">
-            <h2 className="text-3xl font-bold tracking-tight flex items-center gap-3">
-              <span className="w-8 h-0.5 bg-black dark:bg-white block"></span>
-              About Me
-            </h2>
-            <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-lg">
-              Hello! I'm {personalInfo.fname}, a developer based in{" "}
-              {personalInfo.country}. I build things for the web, from scalable
-              backend systems and APIs to clean, modern interfaces using today’s
-              frontend frameworks. I also work on AI integrations to create
-              smarter, data-driven features. My journey into web development
-              began in {personalInfo.web_dev_interest_year} with simple HTML &
-              CSS and has been evolving ever since.
+    <section id="about" className="px-6 sm:px-14 pb-20">
+      <Parallax
+        offset={24}
+        className="grid grid-cols-1 md:grid-cols-[1.4fr_1fr] gap-6"
+      >
+        <Reveal>
+          <div className="bg-card rounded-lg p-10 flex flex-col justify-center h-full">
+            <div className="font-mono text-sm text-primary mb-3.5">{"// about"}</div>
+            <p className="text-lg leading-relaxed text-foreground/85">
+              I began my journey in web development in{" "}
+              {personalInfo.web_dev_interest_year}, starting with HTML and CSS.
+              Since then, I&apos;ve grown into building scalable backend systems,
+              robust APIs, and modern frontend interfaces — and more recently,
+              integrating AI-driven features into production applications.
             </p>
-            <div className="pt-4 flex gap-12">
-              <div className="flex flex-col">
-                <span className="text-3xl font-bold">
-                  {personalInfo.experience}+
-                </span>
-                <span className="text-sm text-slate-500 font-medium">
-                  Years Experience
-                </span>
+          </div>
+        </Reveal>
+
+        <Reveal delay={0.15}>
+          <div className="bg-card rounded-lg p-8 flex flex-col justify-center h-full">
+            <div className="font-mono text-sm leading-loose text-foreground/80">
+              <div>
+                <span className="text-primary">const</span> dev = {"{"}
               </div>
-              <div className="flex flex-col">
-                <span className="text-3xl font-bold">0{projects.length}</span>
-                <span className="text-sm text-slate-500 font-medium">
-                  Projects Completed
-                </span>
+              <div className="pl-4">
+                name: <span className="text-[oklch(82%_0.11_130)]">&apos;{personalInfo.fname}&apos;</span>,
               </div>
+              <div className="pl-4">
+                role:{" "}
+                <span className="text-[oklch(82%_0.11_130)]">&apos;{personalInfo.position}&apos;</span>,
+              </div>
+              <div className="pl-4">
+                status:{" "}
+                <span className="text-[oklch(82%_0.11_130)]">&apos;{personalInfo.status}...&apos;</span>
+                <span className="animate-[blink_1s_step-start_infinite]">|</span>
+              </div>
+              <div>{"};"}</div>
             </div>
           </div>
-        </div>
-      </div>
+        </Reveal>
+      </Parallax>
     </section>
   );
 }
