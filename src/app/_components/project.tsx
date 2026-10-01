@@ -2,8 +2,8 @@
 
 import { Parallax } from "@/components/motion/parallax";
 import { Reveal } from "@/components/motion/reveal";
-import { projects } from "@/lib/utils";
-import { Project } from "@/types/type";
+import { placeholderIcons } from "@/lib/placeholder-icons";
+import type { Project } from "@/types/type";
 import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 
@@ -16,7 +16,9 @@ function ProjectThumbnail({
   className?: string;
   imageSize?: number;
 }) {
-  const PlaceholderIcon = project.placeholderIcon;
+  const PlaceholderIcon = project.placeholderIcon
+    ? placeholderIcons[project.placeholderIcon]
+    : null;
 
   return (
     <div
@@ -78,9 +80,9 @@ function ProjectCard({ project }: { project: Project }) {
           {project.description}
         </p>
 
-        {project.preview_link && (
+        {project.previewLink && (
           <a
-            href={project.preview_link}
+            href={project.previewLink}
             target="_blank"
             rel="noopener noreferrer"
             className="font-mono text-xs font-semibold text-muted-foreground hover:text-primary hover:underline inline-flex items-center gap-0.5 mt-auto w-fit"
@@ -93,7 +95,7 @@ function ProjectCard({ project }: { project: Project }) {
   );
 }
 
-export default function ProjectSection() {
+export default function ProjectSection({ projects }: { projects: Project[] }) {
   return (
     <section id="work" className="px-6 sm:px-14 pb-20">
       <Reveal>

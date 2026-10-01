@@ -4,7 +4,7 @@ import { Briefcase, Cpu, Download, Github, Linkedin, Mail, Menu } from "lucide-r
 import { Button } from "@/components/ui/button";
 import { motion } from "motion/react";
 import { useState } from "react";
-import { personalInfo } from "@/lib/utils";
+import type { Profile } from "@/types/type";
 import Link from "next/link";
 import {
   Sheet,
@@ -22,7 +22,7 @@ const navItems = [
   { name: "Contact", href: "/#contact", icon: Mail },
 ];
 
-export default function Navbar() {
+export default function Navbar({ profile }: { profile: Profile }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -37,9 +37,9 @@ export default function Navbar() {
         href="/"
         className="font-mono text-sm font-semibold tracking-tight hover:opacity-80 transition-opacity"
       >
-        {personalInfo.fname.toLowerCase()}
+        {profile.fname.toLowerCase()}
         <span className="text-primary">/</span>
-        {personalInfo.lastname.toLowerCase()}
+        {profile.lastname.toLowerCase()}
       </Link>
 
       {/* Desktop Nav */}
@@ -74,9 +74,9 @@ export default function Navbar() {
         <SheetContent side="right" className="flex flex-col w-75 sm:w-100">
           <SheetHeader className="text-left">
             <SheetTitle className="font-mono text-lg">
-              {personalInfo.fname.toLowerCase()}
+              {profile.fname.toLowerCase()}
               <span className="text-primary">/</span>
-              {personalInfo.lastname.toLowerCase()}
+              {profile.lastname.toLowerCase()}
             </SheetTitle>
           </SheetHeader>
 
@@ -108,12 +108,12 @@ export default function Navbar() {
               </p>
               <div className="flex gap-2 px-2">
                 <Button variant="ghost" size="icon" asChild>
-                  <Link href={`${personalInfo.github}`} target="_blank">
+                  <Link href={`${profile.github}`} target="_blank">
                     <Github size={20} />
                   </Link>
                 </Button>
                 <Button variant="ghost" size="icon" asChild>
-                  <Link href={`${personalInfo.linked}`} target="_blank">
+                  <Link href={`${profile.linkedin}`} target="_blank">
                     <Linkedin size={20} />
                   </Link>
                 </Button>

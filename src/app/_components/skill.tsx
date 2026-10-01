@@ -2,9 +2,9 @@
 
 import { Parallax } from "@/components/motion/parallax";
 import { Reveal } from "@/components/motion/reveal";
-import { skills } from "@/lib/utils";
+import type { Skill } from "@/types/type";
 
-export default function SkillSection() {
+export default function SkillSection({ skills }: { skills: Skill[] }) {
   return (
     <section id="skills" className="px-6 sm:px-14 pb-20">
       <Reveal>

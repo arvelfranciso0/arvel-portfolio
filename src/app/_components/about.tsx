@@ -2,9 +2,9 @@
 
 import { Parallax } from "@/components/motion/parallax";
 import { Reveal } from "@/components/motion/reveal";
-import { personalInfo } from "@/lib/utils";
+import type { Profile } from "@/types/type";
 
-export default function AboutSection() {
+export default function AboutSection({ profile }: { profile: Profile }) {
   return (
     <section id="about" className="px-6 sm:px-14 pb-20">
       <Parallax
@@ -16,7 +16,7 @@ export default function AboutSection() {
             <div className="font-mono text-sm text-primary mb-3.5">{"// about"}</div>
             <p className="text-lg leading-relaxed text-foreground/85">
               I began my journey in web development in{" "}
-              {personalInfo.web_dev_interest_year}, starting with HTML and CSS.
+              {profile.webDevInterestYear}, starting with HTML and CSS.
               Since then, I&apos;ve grown into building scalable backend systems,
               robust APIs, and modern frontend interfaces — and more recently,
               integrating AI-driven features into production applications.
@@ -31,15 +31,15 @@ export default function AboutSection() {
                 <span className="text-primary">const</span> dev = {"{"}
               </div>
               <div className="pl-4">
-                name: <span className="text-[oklch(82%_0.11_130)]">&apos;{personalInfo.fname}&apos;</span>,
+                name: <span className="text-[oklch(82%_0.11_130)]">&apos;{profile.fname}&apos;</span>,
               </div>
               <div className="pl-4">
                 role:{" "}
-                <span className="text-[oklch(82%_0.11_130)]">&apos;{personalInfo.position}&apos;</span>,
+                <span className="text-[oklch(82%_0.11_130)]">&apos;{profile.position}&apos;</span>,
               </div>
               <div className="pl-4">
                 status:{" "}
-                <span className="text-[oklch(82%_0.11_130)]">&apos;{personalInfo.status}...&apos;</span>
+                <span className="text-[oklch(82%_0.11_130)]">&apos;{profile.status}...&apos;</span>
                 <span className="animate-[blink_1s_step-start_infinite]">|</span>
               </div>
               <div>{"};"}</div>

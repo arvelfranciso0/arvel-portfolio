@@ -1,0 +1,31 @@
+# Local Postgres for development/testing. Production uses Supabase.
+#
+#   docker compose up -d        # start
+#   docker compose down         # stop (data is kept in the pgdata volume)
+#   docker compose down -v      # stop and wipe all data
+#
+# Matching .env.local entries:
+#   DATABASE_URL="postgresql://postgres:postgres@localhost:5432/portfolio"
+#   DIRECT_URL="postgresql://postgres:postgres@localhost:5432/portfolio"
+services:
+  db:
+    # Pinned to the major version Supabase runs
+    image: postgres:17-alpine
+    container_name: arvel-portfolio-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: portfolio
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d portfolio"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  pgdata:
