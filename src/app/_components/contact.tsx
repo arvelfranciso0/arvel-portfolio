@@ -4,13 +4,13 @@ import { Button } from "@/components/ui/button";
 import { Spinner } from "@/components/ui/spinner";
 import { Parallax } from "@/components/motion/parallax";
 import { Reveal } from "@/components/motion/reveal";
-import { personalInfo } from "@/lib/utils";
+import type { Profile } from "@/types/type";
 import { Send } from "lucide-react";
 import { useRef, useState } from "react";
 import { toast } from "sonner";
 import { contactSchema } from "../schema/contact";
 
-export default function ContactSection() {
+export default function ContactSection({ profile }: { profile: Profile }) {
   const form = useRef<HTMLFormElement | null>(null);
   const [isSubmitting, setIsSubmittin] = useState(false);
 
@@ -73,22 +73,22 @@ export default function ContactSection() {
             <div className="flex flex-col gap-3 font-mono text-sm">
               <div>
                 <span className="text-muted-foreground/70">email — </span>
-                <a href={`mailto:${personalInfo.email}`} className="hover:underline">
-                  {personalInfo.email}
+                <a href={`mailto:${profile.email}`} className="hover:underline">
+                  {profile.email}
                 </a>
               </div>
               <div>
                 <span className="text-muted-foreground/70">location — </span>
-                <span className="text-foreground/85">{personalInfo.fll_location}</span>
+                <span className="text-foreground/85">{profile.fullLocation}</span>
               </div>
               <div className="flex gap-4.5 mt-1.5">
-                <a href={personalInfo.github} target="_blank" rel="noopener noreferrer">
+                <a href={profile.github} target="_blank" rel="noopener noreferrer">
                   GitHub
                 </a>
-                <a href={personalInfo.linked} target="_blank" rel="noopener noreferrer">
+                <a href={profile.linkedin} target="_blank" rel="noopener noreferrer">
                   LinkedIn
                 </a>
-                <a href={personalInfo.x} target="_blank" rel="noopener noreferrer">
+                <a href={profile.x} target="_blank" rel="noopener noreferrer">
                   X
                 </a>
               </div>

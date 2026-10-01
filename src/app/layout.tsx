@@ -5,6 +5,11 @@ import Navbar from "@/components/layout/navbar";
 import Footer from "@/components/layout/footer";
 import { Toaster } from "@/components/ui/sonner";
 import { MotionConfig } from "motion/react";
+import { getProfile } from "@/db/queries";
+
+// Portfolio content changes rarely: serve a static page and re-query the
+// database at most once an hour (ISR).
+export const revalidate = 3600;
 
 const sora = Sora({
   variable: "--font-sora",
@@ -67,19 +72,21 @@ export const metadata: Metadata = {
   // manifest: "/site.webmanifest",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const profile = await getProfile();
+
   return (
     <html lang="en">
       <body className={`${sora.variable} ${ibmPlexMono.variable} antialiased`}>
         <MotionConfig reducedMotion="user">
           <div className="max-w-320 mx-auto">
-            <Navbar />
+            <Navbar profile={profile} />
             <main className="flex flex-col">{children}</main>
-            <Footer />
+            <Footer profile={profile} />
           </div>
           <Toaster />
         </MotionConfig>

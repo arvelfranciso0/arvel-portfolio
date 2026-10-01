@@ -3,12 +3,18 @@
 import { Button } from "@/components/ui/button";
 import { Parallax } from "@/components/motion/parallax";
 import { Reveal } from "@/components/motion/reveal";
-import { personalInfo, projects } from "@/lib/utils";
+import type { Profile } from "@/types/type";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function HeroSection() {
+export default function HeroSection({
+  profile,
+  projectCount,
+}: {
+  profile: Profile;
+  projectCount: number;
+}) {
   return (
     <section
       id="home"
@@ -23,9 +29,9 @@ export default function HeroSection() {
         </Reveal>
         <Reveal delay={0.1}>
           <p className="text-[17px] text-muted-foreground max-w-lg leading-relaxed mb-7">
-            {personalInfo.position} focused on building accessible,
+            {profile.position} focused on building accessible,
             pixel-perfect, and performant web applications — based in{" "}
-            {personalInfo.fll_location}.
+            {profile.fullLocation}.
           </p>
         </Reveal>
         <Reveal delay={0.2}>
@@ -51,13 +57,13 @@ export default function HeroSection() {
           <div className="flex gap-8 font-mono">
             <div>
               <div className="text-3xl font-semibold text-foreground">
-                {parseInt(personalInfo.experience, 10)}+
+                {parseInt(profile.experience, 10)}+
               </div>
               <div className="text-xs text-muted-foreground">Yrs Exp.</div>
             </div>
             <div>
               <div className="text-3xl font-semibold text-foreground">
-                {personalInfo.project_completed}
+                {String(projectCount).padStart(2, "0")}
               </div>
               <div className="text-xs text-muted-foreground">Projects</div>
             </div>
@@ -70,7 +76,7 @@ export default function HeroSection() {
           <div className="w-64 h-64 sm:w-80 sm:h-80 md:w-100 md:h-100 rounded-full overflow-hidden bg-primary flex items-start justify-center">
             <Image
               src="/arvel-dev.png"
-              alt={`${personalInfo.fname} ${personalInfo.lastname}`}
+              alt={`${profile.fname} ${profile.lastname}`}
               width={1650}
               height={2100}
               className="w-[78%] h-auto mt-[12%]"
